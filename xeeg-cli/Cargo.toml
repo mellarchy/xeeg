@@ -1,0 +1,34 @@
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[package]
+name = "xeeg"
+description="An advanced and universal template file generator that puts you in charge"
+readme="README.md"
+version = "0.1.0"
+edition = "2021"
+license-file = "LICENSE.md"
+authors = ["J. Ignatius Aggrey <jaygrey.jg@gmail.com>"]
+# homepage = "https://github.com/you/grrs"
+# repository = "https://github.com/you/grrs"
+keywords = ["boilerplate", "template", "file generator", "cli"]
+categories = ["command-line-utilities"]
+
+
+[dependencies]
+structopt = "0.3.13"
+anyhow = "1.0"
+Inflector = "0.11.4"
+console = "0.14.1"
+serde = "1.0.145"
+serde_derive = "1.0.145"
+confy = { version = "0.5.0", features = ["yaml_conf"], default-features = false }
+clap = { version = "4.0.8", features = ["derive"] }
+serde_json = "1.0.85"
+convert_case = "0.6.0"
+
+
+
+# https://www.reddit.com/r/rust/comments/5k8uab/crosscompiling_from_ubuntu_to_windows_with_rustup/
+[target.x86_64-pc-windows-gnu]
+linker = "x86_64-w64-mingw32-gcc"
+ar = "x86_64-w64-mingw32-gcc-ar"

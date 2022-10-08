@@ -1,0 +1,96 @@
+import { markActionsOffline } from 'redux-offline-queue';
+import { ActionRequestOptions } from '@lib/types';
+
+const prefix = '@[NEEDLE_LOWER_PLURAL]::';
+
+const [NEEDLE_LOWER]Actions = {
+	fetch[NEEDLE_PLURAL]: (data?, options?: ActionRequestOptions) => ({
+		type: prefix + 'FETCH_[NEEDLE_UPPER_PLURAL]',
+		data,
+		options,
+	}),
+	fetched[NEEDLE_PLURAL]: (data?) => ({
+		type: prefix + 'FETCHED_[NEEDLE_UPPER_PLURAL]',
+		...data,
+	}),
+	failedFetch[NEEDLE_PLURAL]: (error?) => ({
+		type: prefix + 'FAILED_FETCH_[NEEDLE_UPPER_PLURAL]',
+		...error,
+	}),
+	fetch[NEEDLE]: (data?, options?: ActionRequestOptions) => ({
+		type: prefix + 'FETCH_[NEEDLE_UPPER]',
+		data,
+		options,
+	}),
+	fetched[NEEDLE]: (data?) => ({
+		type: prefix + 'FETCHED_[NEEDLE_UPPER]',
+		...data,
+	}),
+	failedFetch[NEEDLE]: (error?) => ({
+		type: prefix + 'FAILED_FETCH_[NEEDLE_UPPER]',
+		...error,
+	}),
+	create[NEEDLE]: (payload?) => ({
+		type: prefix + 'CREATE',
+		payload: { ...payload, type: '[NEEDLE_LOWER_PLURAL]' },
+		queueable: true,
+	}),
+	created[NEEDLE]: (data?) => ({
+		type: prefix + 'CREATED',
+		...data,
+	}),
+	failedCreate[NEEDLE]: (error?) => ({
+		type: prefix + 'FAILED_CREATE',
+		...error,
+	}),
+	update[NEEDLE]: (payload?) => ({
+		type: prefix + 'UPDATE_[NEEDLE_UPPER]',
+		payload: { ...payload, type: '[NEEDLE_LOWER_PLURAL]' },
+		queueable: true,
+	}),
+	updated[NEEDLE]: (data?) => ({
+		type: prefix + 'UPDATED_[NEEDLE_UPPER]',
+		...data,
+	}),
+	failedUpdate[NEEDLE]: (error?) => ({
+		type: prefix + 'FAILED_UPDATE_[NEEDLE_UPPER]',
+		...error,
+	}),
+	delete[NEEDLE]: (payload?) => ({
+		type: prefix + 'DELETE_[NEEDLE_UPPER]',
+		payload: { ...payload, type: '[NEEDLE_LOWER_PLURAL]' },
+		queueable: true,
+	}),
+	deleted[NEEDLE]: (data?) => ({
+		type: prefix + 'DELETED_[NEEDLE_UPPER]',
+		...data,
+	}),
+	failedDelete[NEEDLE]: (error?) => ({
+		type: prefix + 'FAILED_DELETE_[NEEDLE_UPPER]',
+		...error,
+	}),
+};
+
+markActionsOffline(
+	[NEEDLE_LOWER]Actions,
+	Object.entries([NEEDLE_LOWER]Actions)
+		.filter(([k, v]) => v().queueable)
+		.map(([k, v]) => k),
+);
+
+export const {
+	fetch[NEEDLE_PLURAL],
+	fetched[NEEDLE_PLURAL],
+	failedFetch[NEEDLE_PLURAL],
+	fetch[NEEDLE],
+	fetched[NEEDLE],
+	failedFetch[NEEDLE],
+	create[NEEDLE],
+	created[NEEDLE],
+	failedCreate[NEEDLE],
+	update[NEEDLE],
+	updated[NEEDLE],
+	delete[NEEDLE],
+	deleted[NEEDLE],
+	failedDelete[NEEDLE],
+} = [NEEDLE_LOWER]Actions;

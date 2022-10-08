@@ -1,0 +1,62 @@
+# ./stubs/action.stub
+
+// Generated with Xeeg ;)
+
+import { ActionRequestOptions } from '@lib/types';
+
+const prefix = '@[NEEDLE_CAMEL_PLURAL]::';
+
+const [NEEDLE_CAMEL]Actions = {
+	fetch[NEEDLE_PASCAL_PLURAL]: (data?, options?: ActionRequestOptions) => ({
+		type: `${prefix}FETCH_[NEEDLE_UPPER_SNAKE_PLURAL]`,
+		data,
+		options,
+	}),
+	fetched[NEEDLE_PASCAL_PLURAL]: (data?) => ({
+		type: `${prefix}FETCHED_[NEEDLE_UPPER_SNAKE_PLURAL]`,
+		...data,
+	}),
+	failedFetch[NEEDLE_PASCAL_PLURAL]: (error?) => ({
+		type: `${prefix}FAILED_FETCH_[NEEDLE_UPPER_SNAKE_PLURAL]`,
+		...error,
+	}),
+	fetch[NEEDLE_PASCAL]: (data?, options?: ActionRequestOptions) => ({
+		type: `${prefix}FETCH_[NEEDLE_UPPER_SNAKE]`,
+		data,
+		options,
+	}),
+	fetched[NEEDLE_PASCAL]: (data?) => ({
+		type: `${prefix}FETCHED_[NEEDLE_UPPER_SNAKE]`,
+		...data,
+	}),
+	failedFetch[NEEDLE_PASCAL]: (error?) => ({
+		type: `${prefix}FAILED_FETCH_[NEEDLE_UPPER_SNAKE]`,
+		...error,
+	}),
+	create[NEEDLE_PASCAL]: (payload?) => ({
+		type: `${prefix}CREATE_[NEEDLE_UPPER_SNAKE]`,
+		payload: { ...payload, type: '[NEEDLE_SNAKE_PLURAL]' },
+		queueable: true,
+	}),
+	created[NEEDLE_PASCAL]: (data?) => ({
+		type: `${prefix}CREATED_[NEEDLE_UPPER_SNAKE]`,
+		...data,
+	}),
+	failedCreate[NEEDLE_PASCAL]: (error?) => ({
+		type: `${prefix}FAILED_CREATE_[NEEDLE_UPPER_SNAKE]`,
+		...error,
+	}),
+};
+
+export const {
+	fetch[NEEDLE_PASCAL_PLURAL],
+	fetched[NEEDLE_PASCAL_PLURAL],
+	failedFetch[NEEDLE_PASCAL_PLURAL],
+	fetch[NEEDLE_PASCAL],
+	fetched[NEEDLE_PASCAL],
+	failedFetch[NEEDLE_PASCAL],
+	create[NEEDLE_PASCAL],
+	created[NEEDLE_PASCAL],
+	failedCreate[NEEDLE_PASCAL],
+} = [NEEDLE_CAMEL]Actions;
+
