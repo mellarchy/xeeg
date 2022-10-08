@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[313],{9314:e=>{e.exports=JSON.parse('{"title":"Extras","slug":"/category/extras","permalink":"/xeeg/docs/category/extras","navigation":{"previous":{"title":"Needles","permalink":"/xeeg/docs/references/needles"},"next":{"title":"Downloads","permalink":"/xeeg/docs/extras/downloads"}}}')}}]);

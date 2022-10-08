@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[212],{8999:e=>{e.exports=JSON.parse('{"title":"References","slug":"/category/references","permalink":"/xeeg/docs/category/references","navigation":{"previous":{"title":"CLI Usage","permalink":"/xeeg/docs/tutorial-basics/cli"},"next":{"title":"Needles","permalink":"/xeeg/docs/references/needles"}}}')}}]);
