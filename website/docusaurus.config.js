@@ -63,7 +63,7 @@ const config = {
             label: 'Tutorial',
           },
 					{
-            href: 'https://github.com/mellarchy/xeeg/xeeg-cli/TODO.md',
+            href: 'https://github.com/mellarchy/xeeg/tree/main/xeeg-cli/TODO.md',
             position: 'left',
             label: 'Early TODOs',
           },
