@@ -17,7 +17,22 @@ sudo apt install ./xeeg-0.1.0.deb
 (Assuming the installed file is called 'xeeg.deb')
 
 ## MacOS
+Open Terminal
 
+Create directory ${HOME}/bin by running
+mkdir -p ${HOME}/bin
+3.Save the xeeg binary to directory ${HOME}/bin
+
+Make the binary executable by running
+chmod 755 ${HOME}/bin/xeeg
+
+-Open your shell config file in a text editor. If the file doesn’t exist, create it.
+export PATH="${HOME}/bin:${PATH}"
+
+Restart your Terminal
+
+Verify the binary is on your PATH by running
+command -v xeeg
 ## Windows
 - Download the executable (.exe) binary from the [binary downloads page](/docs/extras/downloads)
 
