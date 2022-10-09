@@ -6,3 +6,4 @@
 - README.md
 - DOWNLOADS.md
 - Docs
+- Automtic installation
