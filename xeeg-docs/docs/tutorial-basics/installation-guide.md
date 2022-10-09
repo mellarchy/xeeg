@@ -6,6 +6,19 @@ sidebar_position: 1
 
 Getting the xeeg binary on your filesystem
 
+
+## Automatic Installation
+
+### Linux
+
+> This is experimental and is currently only tested on Ubuntu 20.04
+
+```bash
+curl https://raw.githubusercontent.com/mellarchy/xeeg/main/xeeg-cli/scripts/linux-auto-installation.sh | sudo bash -s -
+```
+
+
+
 ## Manual Installation
 
 ### Linux
@@ -60,13 +73,26 @@ Hence your binary will be located at `%USERPROFILE%\xeeg\xeeg.exe`
 You may decide to it at the start or at the end of the PATH value. Windows goes through this in order and will stop as soon as a match is found.
 
 
+### Building From Source
 
-## Automatic Installation
+Get the Xeeg binary by building it locally from source
 
-### Linux
+#### Prerequisites
+- rustup - An installer for the systems programming language Rust. (Refer to [rustup's installation guide](https://rustup.rs/))
+- cargo - The Rust build system. (Refer to [cargo's installation guide](https://doc.rust-lang.org/cargo/getting-started/installation.html))
 
-> This is experimental and is currently only tested on Ubuntu 20.04
+#### Steps
+
+- Clone the project
 
 ```bash
-curl https://raw.githubusercontent.com/mellarchy/xeeg/main/xeeg-cli/scripts/linux-auto-installation.sh | sudo bash -s -
+git clone https://github.com/mellarchy/xeeg
 ```
+
+- Navigate to the project directory in your terminal and build and install the project by running the command below
+
+```bash
+cargo build --release
+```
+
+- This will generate a suitable binary for your OS which can be installed globally.

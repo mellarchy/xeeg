@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Configuration
 
-## How to
+## Configuring xeeg for your use case.
 
 Configuring Xeeg to work for your special use case is quick and easy.
 
