@@ -65,7 +65,7 @@ command -v xeeg
 ### Windows
 - Download the executable (.exe) binary from the [binary downloads page](/docs/extras/downloads)
 
-- Run md %USERPROFILE%\xeeg in your terminal and copy the download file to this location.
+- Run md %USERPROFILE%\xeeg in your terminal and copy the downloaded file to this location.
 ***If you would like to see what this location is, run `echo %USERPROFILE%\xeeg\xeeg.exe`***
 Hence your binary will be located at `%USERPROFILE%\xeeg\xeeg.exe`
 
