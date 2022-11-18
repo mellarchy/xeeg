@@ -69,7 +69,7 @@ command -v xeeg
 ***If you would like to see what this location is, run `echo %USERPROFILE%\xeeg\xeeg.exe`***
 Hence your binary will be located at `%USERPROFILE%\xeeg\xeeg.exe`
 
-- Run control sysdm.cpl, and this will open a dialog menu. In the tab "Advanced" click on "Environment Variables..." and add `%USERPROFILE%\xeeg\xeeg.exe` to the PATH variable of your account.
+- Run control sysdm.cpl, and this will open a dialog menu. In the tab "Advanced" click on "Environment Variables..." and add `%USERPROFILE%\xeeg` to the PATH variable of your account.
 You may decide to place it at the start or at the end of the PATH value. Windows goes through this in order and will stop as soon as a match is found.
 
 
