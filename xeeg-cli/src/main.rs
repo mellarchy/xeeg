@@ -51,7 +51,9 @@ fn main() -> Result<(), Error> {
 				let output_file_name: String;
 				if args.print == false {
 					if args.output_file_name == None {
-						panic!("You forgot to specify an output file name");
+						println!("{}", style("You forgot to specify an output file name. If you would like to simply print the output to your terminal, run the command again with the --print flag (-p)").red());
+						return Ok(())
+						// panic!("You forgot to specify an output file name");
 					} else {
 						output_file_name = args.output_file_name.unwrap();
 					}
@@ -83,7 +85,11 @@ fn main() -> Result<(), Error> {
 					"config" => {
 						config::print_current_config_dir().expect("Unable to find config path");
 					},
-					_ => panic!("There is no command with name `{}` in the `{}` namespace", command_parts[1], command_parts[0]),
+					_ => {
+						println!("{}", style(format!("There is no command with name `{}` in the `{}` namespace", command_parts[1], command_parts[0])).red());
+						return Ok(())
+						// panic!("There is no command with name `{}` in the `{}` namespace", command_parts[1], command_parts[0])
+					},
 				}
 			},
 			"where" => {
@@ -91,10 +97,18 @@ fn main() -> Result<(), Error> {
 					"global-config" => {
 						config::print_global_config_dir().expect("Unable to find global config path");
 					},
-					_ => panic!("There is no command with name `{}` in the `{}` namespace", command_parts[1], command_parts[0]),
+					_ => {
+						println!("{}", style(format!("There is no command with name `{}` in the `{}` namespace", command_parts[1], command_parts[0])).red());
+						return Ok(())
+						// panic!("There is no command with name `{}` in the `{}` namespace", command_parts[1], command_parts[0])
+					},
 				}
 			},
-			_ => panic!("Undefined command `{}`", command_parts[0]),
+			_ => {
+				println!("{}", style(format!("Undefined command `{}`", command_parts[0])).red());
+				return Ok(())
+			},
+			// _ => panic!("Undefined command `{}`", command_parts[0]),
 		}
 	)
 }
@@ -121,21 +135,23 @@ fn make_file(stub_file_name: String, model: String, output_file_name: String, cf
 			path.push(&cfg.stubs_dir);
 			path.push(stub_file_name);
 
+			if path.exists() {
+				let replacement = String::from(model);
 
+				process_file(ProcessPayload {
+					replacement,
+					path,
+					output_path,
+					cfg,
+					print,
+					overwrite_existing,
+				});
 
-			let replacement = String::from(model);
-
-			process_file(ProcessPayload {
-				replacement,
-				path,
-				output_path,
-				cfg,
-				print,
-				overwrite_existing,
-			});
-
-			if print == false {
-				println!("{}", style(format!("✅ File generated: {}", action_output_path)).green());
+				if print == false {
+					println!("{}", style(format!("✅ File generated: {}", action_output_path)).green());
+				}
+			} else {
+				println!("{}", style(format!("There is no stub file in the path `{}`", path.display())).red());
 			}
 		}
 
@@ -293,7 +309,7 @@ fn make_file(stub_file_name: String, model: String, output_file_name: String, cf
 
 			if args.print == false {
 				if args.output_path.exists() && args.overwrite_existing == false {
-					panic!("The file at the output path already exists");
+					println!("The file at the output path ({}) already exists. If you would like to overwrite it, run the command again with the --overwrite-existing flag (-o)", args.output_path.display());
 				}
 
 				let file = File::create(args.output_path).with_context(|| "Unable to create file");
