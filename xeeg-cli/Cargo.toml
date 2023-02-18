@@ -11,8 +11,7 @@ version = "0.1.0"
 edition = "2021"
 license-file = "LICENSE.md"
 authors = ["J. Ignatius Aggrey <jaygrey.jg@gmail.com>"]
-# homepage = "https://github.com/you/grrs"
-# repository = "https://github.com/you/grrs"
+ci = ["github"]
 keywords = ["boilerplate", "template", "file generator", "cli"]
 categories = ["command-line-utilities"]
 
