@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## curl -s https://getcomposer.org/installer | php
+#
 # download the binary
 echo "$(tput setaf 4)$(tput setab 0)STEP 1:: Downloading Xeeg Binary (curl)"
 if curl https://raw.githubusercontent.com/mellarchy/xeeg/main/xeeg-cli/downloads/xeeg_0.1.0_amd64.deb -L -o xeeg.deb ; then
